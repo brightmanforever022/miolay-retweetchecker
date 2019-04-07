@@ -1,0 +1,30 @@
+{
+  "port": 8888,
+  "session": {
+    "ttl": 1209600,
+    "keys": ["ZnrjO0vP7Xa4UoJg8q1", "0fvBxlkw8Nnouhf7Sub"]
+  },
+  "cache": {
+    "lifetimeSeconds": 3600
+  },
+  "twitter": {
+    "oauth1": {
+      "callback": "http://127.0.0.1:3000/login/callback",
+      "consumerKey": "N06zf3h1NDbmcT4GqRPoBIiDn",
+      "consumerSecret": "XPUeBn1vqDPQkxMqz9bGmqjCj1vSpacDOHlsAuaTjfPbofaKk0",
+      "accessTokenKey": "1012412990438559745-oCfoZIBcBrDHjTBuvXbHv3VM2R9Acy",
+      "accessTokenSecret": "vCoNB9rJP7nUD58zDYIAzbLTf9oFBNtz1icuRh2e1HLRf"
+    },
+    "limits": {
+      "timeline": 100,
+      "retweets": 100
+    }
+  },
+  "fakeThreshold" : 30,
+  "users": {
+    "whitelist": ["chrisrock", "zperbad765", "MNPhotoGlrl"],
+    "blacklist": ["patrickbytion"]
+  },
+  "mongodbUri": "mongodb://localhost:27017/twittercheck",
+  "originURL": "http://127.0.0.1:3000"
+}

@@ -1,0 +1,994 @@
+@import "scss/vars";
+
+.row {
+  margin: 0 auto ;
+  max-width: 800px;
+}
+
+.App-header {
+  margin: 0 auto ;
+  max-width: 1140px;
+  margin-bottom: 80px;
+
+  .App-logo {
+  }
+  @media screen and (max-width: 590px){
+    .App-logo {
+      width: 100%;
+    }
+  }
+
+  .App-nav {
+    display: inline-block;
+
+    li {
+      display: inline-block;
+      margin: 0 20px;
+      text-transform: uppercase;
+      font-size: 90%;
+
+      a {
+        text-decoration: none;
+        color: #657785;
+        font-weight: 600;
+
+        &.active {
+          color: #343434;
+        }
+
+        .asterisk {
+          position: relative;
+          top: -6px;
+        }
+      }
+    }
+  }
+
+  .App-nav-holder{
+    text-align: end;
+    
+  }
+  @media screen and (max-width: 590px){
+    .App-nav-holder{
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+
+  .user-controls {
+    display: inline-block;
+    position: relative;
+    bottom: -15px;
+    margin-left: 10px;
+
+    button {
+      border: 1px solid #1da1f2;
+      border-radius: 35px;
+      height: 50px;
+      background: none;
+      box-sizing: border-box;
+      padding: 4px 4px 0px 4px;
+      font-size: 90%;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #1da1f2;
+      transition: all .5s ease;
+      cursor: pointer;
+      line-height: 50px;
+      display: inline-block;
+      position: relative;
+
+      .avatar {
+        background: #ccc;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: none;
+      }
+
+      .my-username {
+        display: inline-block;
+        line-height: 50px;
+        position: relative;
+        top: -14px;
+      }
+
+      &:hover {
+        color: #fff;
+        background-color: #1da1f2;
+      }
+    }
+    .login-btn{
+      padding: 0 20px;
+      top: -15px;
+      margin-left: 10px;
+      border: 1px solid #1da1f2;
+      border-radius: 35px;
+      height: 50px;
+      background: none;
+      box-sizing: border-box;
+      font-size: 90%;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #1da1f2;
+      transition: all .5s ease;
+      cursor: pointer;
+      line-height: 50px;
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: 1000;
+      background: rgba(#fff, .95);
+      border: 1px solid #ddd;
+      box-shadow: 0 5px 10px rgba(0,0,0,.2);
+      border-radius: 4px;
+      list-style: none;
+      padding: 0;
+      overflow: hidden;
+      right: 0;
+      min-width: 140px;
+
+      li {
+        font-weight: 600;
+
+        a {
+          color: rgba(#343434, .6);
+          text-decoration: none;
+          display: inline-block;
+          line-height: 1.3em;
+          padding: 20px;
+        }
+
+        .fas {
+          margin-right: 6px;
+        }
+
+        &:hover {
+          background: #1da1f2;
+          a { color: rgba(#fff, .9); }
+        }
+      }
+    }
+  }
+}
+
+.App-body {
+  padding: 0 20px;
+
+  h1.main-title {
+    text-transform: uppercase;
+    font-size: 2.3em;
+    text-align: center;
+  }
+  @media screen and (max-width: 630px){
+    h1.main-title{
+      font-size: 2.1em;
+    }
+  }
+  @media screen and (max-width: 570px){
+    h1.main-title{
+      font-size: 1.9em;
+    }
+  }
+  @media screen and (max-width: 520px){
+    h1.main-title{
+      font-size: 1.4em;
+    }
+  }
+  .searchResults {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .toolbar {
+      position: absolute;
+      right: -70px;
+      top: 20px;
+      width: 50px;
+      text-align: center;
+
+      a {
+        display: block;
+        margin-top: 15px;
+        min-width: 30px;
+        min-height: 30px;
+
+        .hand {
+          border: 2px solid #d0d6dc;
+          border-radius: 50%;
+          padding: 10px;
+          &:hover {
+            border-color: #1ea1f2;
+          }
+        }
+      }
+      a.twitter {
+        background: url(./images/tool-twitter.png) no-repeat;
+        margin-left: 19px;
+        &:hover {
+          background: url(./images/tool-twitter-blue.png) no-repeat;
+        }
+      }
+      a.facebook {
+        background: url(./images/tool-facebook.png) no-repeat;
+        margin-left: 22px;
+        &:hover {
+          background: url(./images/tool-facebook-blue.png) no-repeat;
+        }
+      }
+    }
+  }
+  .teaser-block{
+    background: rgba(15,54,97,.6) url('./images/tease-mask-bg.jpg');
+    background-size: cover;
+    padding-bottom: 40px;
+    h1{
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 2.0rem;
+      padding: 30px 0 20px 0;
+    }
+    p{
+      max-width: 420px;
+      color: #fff;
+      font-size: 1.0rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+    h3{
+      text-align: center;
+      color:#1986ce;
+      font-size: 1.2rem;
+    }
+    a{
+      display: block;
+      width: 300px;
+      background: #62bb00;
+      color:#fff;
+      height: 70px;
+      margin: 0 auto;
+      margin-top: 50px;
+      text-decoration: none;
+      border-radius: 6px;
+      text-align: center;
+      line-height: 70px;
+      font-size: 1.1rem;
+    }
+  }
+  
+
+  .search-container {
+
+    .error-message {
+      text-align: center;
+      color: red;
+      font-size: 18px;
+      margin-top: -8px;
+    }
+    .input-field {
+      border: 1px solid #1da1f2;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      margin-bottom: 2%;
+
+      .at-symbol {
+        color: #1da1f2;
+        background: #ebf7fe;
+        border-right: 1px solid #1da1f2;
+        height: 64px;
+        line-height: 64px;
+        display: inline-block;
+        width: 50px;
+        font-size: 32px;
+        text-align: center;
+        position: absolute;
+        border-radius: 5px 0 0 5px;
+        top: 0;
+        left: 0;
+      }
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        height: 64px;
+        // padding: 0 20px 0 68px;
+        padding: 0 20px;
+        font-size: 128%;
+        border-radius: 5px 0 0 5px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      @media screen and (max-width: 710px){
+        input{
+          font-size: 100%;
+        }
+      }
+      @media screen and (max-width: 560px){
+        input{
+          font-size: 90%;
+          padding: 0 5px 0 20px;
+        }
+      }
+    }
+
+    button {
+      color: #fff;
+      background: #1da1f2;
+      border: none;
+      border-bottom: 1.5px solid #0b78b9;
+      border-radius: 5px;
+      box-sizing: border-box;
+      height: 66px;
+      font-size: 130%;
+      font-weight: 700;
+      margin-bottom: 2%;
+      position: relative;
+      transition: background-color .5s ease;
+      cursor: pointer;
+
+      &:hover {
+        background: #0b78b9;
+        border-bottom: 1.5px solid #1da1f2;
+      }
+
+      .icon {
+        background: url("images/twitter-icon-small-white.png") no-repeat;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        position: relative;
+        top: 5px;
+        left: -2px;
+      }
+    }
+    @media screen and (max-width: 630px){
+      button{
+        font-size: 100%;
+      }
+    }
+    @media screen and (max-width: 480px){
+      button{
+        font-size: 150%;
+        .icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      
+    }
+  }
+
+  .entry.tweet {
+    background: #fff;
+    border: 1px solid #e6eff2;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+
+    &.expanded {
+      border-radius: 5px 5px 0 0 ;
+      margin-bottom: 0;
+    }
+
+    .tweet-content {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .avatar {
+      display: inline-block;
+      position: absolute;
+      width: 80px;
+      text-align: center;
+      padding-top: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: #ccc;
+        overflow: hidden;
+      }
+    }
+
+    .content {
+      padding: 1% 10px 40px 80px;
+      border-right: 1px solid #e6eff2;
+      min-height: 140px;
+      position: relative;
+      overflow: hidden;
+      
+      .fa-chevron-down {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      .byline {
+        color: #343434;
+        font-weight: 700;
+        position: relative;
+        top: 5px;
+
+        a {
+          color: #b4b4b4;
+          text-decoration: none;
+          transition: color 200ms;
+
+          &:hover {
+            color: darken(#b4b4b4, 15%);
+          }
+        }
+
+        .date {
+          color: #b4b4b4;
+        }
+      }
+
+      .tweet-txt {
+        color: rgba(#343434, .7);
+        line-height: 1.5em;
+      }
+
+      .counts {
+        color: rgba(#343434, .7);
+        font-weight: 700;
+        position: absolute;
+        bottom: 15px;
+        left: 80px;
+        width: calc(100% - 90px);
+        .loading {
+          margin-top: -50px;
+        }
+        span {
+          margin-right: 4%;
+
+          &:before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            background: url("images/tweet-icons.svg") no-repeat;
+            background-size: 180px;
+            width: 33px;
+            height: 25px;
+            opacity: .6;
+          }
+        }
+
+        span.search-date, span.refresh-btn {
+          float: right;
+          margin-right: 10px;
+          font-size: 14px;
+          &:before {
+            content: none;
+          }
+        }
+
+        span.search-date {
+          font-weight: 600;
+          opacity: .6;
+        }
+        span.refresh-btn {
+          margin-right: 0;
+        }
+
+        span.refresh-btn {
+          color: #2672af;
+          cursor: pointer;
+        }
+
+        .retweets:before {
+          background-position: -50px -1px;
+        }
+        .likes:before {
+          background-position: -100px 0;
+        }
+      }
+
+    }
+  }
+
+  .analysis-box {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .anal-inner {
+      padding-right: 4%;
+      position: relative;
+
+      .full-width {
+        width: 100%;
+      }
+    }
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 100%;
+      text-align: center;
+    }
+
+    .result-container {
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      top: -12px;
+
+      &.fishy {
+        .adjective {
+          color: #e23131;
+          font-size: 7vw;
+        }
+      }
+
+      &.suspicious {
+        .adjective {
+          color: #f5c359;
+          left: -2px;
+        }
+      }
+
+      &.real {
+        .adjective {
+          color: #1da1f2;
+          font-size: 7vw;
+        }
+      }
+
+      .adverb {
+        display: block;
+        opacity: .5;
+      }
+
+      .adjective {
+        display: inline-block;
+        font-size: 4.8vw;
+        line-height: 1em;
+        position: relative;
+        margin: 0;
+        top: -4px;
+        left: -4px;
+      }
+
+      .result-icon {
+        font-size: 7vw;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: .8;
+
+        &.fa-thumbs-up {
+          color: #1da1f2;
+        }
+
+        &.fa-thumbs-down {
+          color: #e23131;
+        }
+      }
+      
+
+      .chart-description {
+        float: left;
+        width: 46%;
+
+        .txt {
+          text-transform: none;
+          font-weight: normal;
+          line-height: 1em;
+          font-size: 100%;
+          display: block;
+          opacity: .6;
+        }
+
+        .percentage {
+          display: block;
+          font-size: 5vw;
+          line-height: 1em;
+          color: #1da1f2;
+          font-weight: 700;
+          margin: 6% 0;
+        }
+
+        .real-color {
+          color: #1DA1F2;
+        }
+
+        .suspicious-color {
+          color: #FCC81B;
+        }
+
+        .bots-color {
+          color: #FF6384;
+        }
+
+        .classification {
+          opacity: .6;
+          display: block;
+          line-height: 1.1em;
+        }
+
+        @media screen and (max-width: 480px){
+          .percentage{
+            font-size: 3.9rem;
+          }
+          .classification {
+            font-size: 2.5rem;
+          }
+          .classification.suspicious-text {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .doughnut-chart {
+        float: right;
+        width: 54%;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: left;
+
+        canvas {
+        }
+      }
+    }
+
+    button {
+      color: #62bb00;
+      background: #fff;
+      border: 1px solid #62bb00;
+      border-radius: 4px;
+      font-size: 100%;
+      font-weight: 600;
+      line-height: 1.2em;
+      padding: 8px 0;
+      box-sizing: border-box;
+      width: 100%;
+      cursor: pointer;
+      transition: all .2s ease;
+
+      &:hover {
+        background: #62bb00;
+        color: #fff;
+      }
+    }
+    a.analysis-link {
+      font: 600 18px "Open Sans";
+      align-items: flex-start;
+      text-align: center;
+      color: #62bb00;
+      background: #fff;
+      border: 1px solid #62bb00;
+      border-radius: 4px;
+      font-size: 100%;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1.2em;
+      padding: 4px 10px;
+      margin: 0;
+      box-sizing: border-box;
+      display: block;
+      cursor: pointer;
+      transition: all .2s ease;
+      position: absolute;
+      top: 128px;
+
+      &:hover {
+        background: #62bb00;
+        color: #fff;
+      }
+    }
+    a.analysis-link.disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .recent-list {
+    position: relative;
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 2em;
+    }
+    .loading {
+      left: 0%;
+      width: 100px;
+      margin-top: 50px;
+    }
+    .recent-entries {
+
+    }
+
+  }
+
+  .retweet-report {
+    border-left: 1px solid #e6eff2;
+    border-right: 1px solid #e6eff2;
+    border-bottom: 1px solid #e6eff2;
+    background: rgba(#fff, .4);
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+
+    .retweeter-analysis {
+      font-size: 90%;
+      padding-right: 3%;
+
+      .captures {
+        padding: 0;
+        list-style: none;
+        line-height: 1.8em;
+
+        .text-left {
+          float: left;
+          line-height: 1.3em;
+
+          p {
+            margin: 0;
+          }
+        }
+
+        .text-right {
+          float: right;
+          font-size: 90%;
+        }
+
+        .capture {
+          overflow: hidden;
+          margin-bottom: 8px;
+          color: rgba(#2c3337, .6);
+
+          &:first-child {
+            .text-left p {
+              position: relative;
+              top: 4px;
+              font-weight: 700;
+              color: #2c3337;
+            }
+          }
+
+          &:first-of-type {
+            .text-right span {
+              font-weight: 700;
+              color: #fff;
+              border-radius: 20px;
+              padding: 3px 8px;
+              display: inline-block;
+              box-sizing: border-box;
+              line-height: 1.4em;
+            }
+          }
+
+          &.real .text-right { color: darken(#1da1f2, 6%); }
+          &.suspicious .text-right { color: darken(#f5c359, 6%); }
+          &.bots .text-right { color: darken(#e23131, 6%); }
+        }
+      }
+
+      .real-people {
+        .captures .capture:first-of-type .text-right span { background: #1da1f2; }
+      }
+      .suspicious-users {
+        .captures .capture:first-of-type .text-right span { background: #f5c359; }
+      }
+      .bots {
+        .captures .capture:first-of-type .text-right span { background: #e23131; }
+      }
+    }
+
+    .col-capture-roof {
+      .capture-roof {
+        box-sizing: border-box;
+        width: 100%;
+        padding-left: 1.6%;
+
+        .retweeter-link {
+          position: relative;
+          box-sizing: border-box;
+
+          .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 6px;
+            background: #ccc;
+            display: inline-block;
+
+            &.real {
+              border: 2px solid #1da1f2;
+            }
+            &.suspicious {
+              border: 2px solid #f4ba41;
+            }
+            &.bots {
+              border: 2px solid #e74145;
+            }
+          }
+        }
+      }
+    }
+
+    .capture-roof {
+      img {
+        opacity: 1;
+        transition: opacity 300ms;
+        transition-delay: 100ms;
+      }
+      &.hovering {
+        img {
+          opacity: .04;
+        }
+
+        &.real {
+          img.real {
+            opacity: 1;
+          }
+          &.regular {
+            img.real { opacity: .2; }
+            img.real.regular { opacity: 1; }
+          }
+          &.influencer {
+            img.real { opacity: .2; }
+            img.real.influencer { opacity: 1; }
+          }
+        }
+        &.suspicious {
+          img.suspicious {
+            opacity: 1;
+          }
+          &.highRetweetRatio {
+            img.suspicious { opacity: .2; }
+            img.suspicious.highRetweetRatio { opacity: 1; }
+          }
+          &.highFollowerRatio {
+            img.suspicious { opacity: .2; }
+            img.suspicious.highFollowerRatio { opacity: 1; }
+          }
+          &.highThreatLevel {
+            img.suspicious { opacity: .2; }
+            img.suspicious.highThreatLevel { opacity: 1; }
+          }
+        }
+        &.bots {
+          img.bots {
+            opacity: 1;
+          }
+          &.account {
+            img.bots { opacity: .2; }
+            img.bots.account { opacity: 1; }
+          }
+          &.activity {
+            img.bots { opacity: .2; }
+            img.bots.activity { opacity: 1; }
+          }
+          &.accountAndActivity {
+            img.bots { opacity: .2; }
+            img.bots.accountAndActivity { opacity: 1; }
+          }
+        }
+      }
+    }
+    .captures {
+
+      li.capture {
+        line-height: 1.4em;
+        transition: background-color 300ms;
+        cursor: default;
+
+        &:hover {
+          background: rgba(0, 0 ,0, .06);
+        }
+      }
+
+    }
+
+    .col-doughnut {
+      padding-top: 2.4%;
+    }
+  }
+
+  .boxes {
+    border-top: 1px solid #e6eff2;
+    border-bottom: 1px solid #e6eff2;
+    padding: 0;
+    /*height: 174px;*/
+    overflow: hidden;
+    background: #fff;
+
+    .box.col {
+      text-align: center;
+      /*margin: 0;*/
+      padding: 0;
+      /*height: 174px;*/
+      border-right: 1px solid #e6eff2;
+      box-sizing: border-box;
+
+      &.last {
+        border-right: none;
+      }
+      .box-inner {
+        
+        width: 100%;
+        height: 150px;
+        position: relative;
+        padding-top: 10px;
+        top: -16px;
+      }
+
+      .count {
+        font-size: 360%;
+        font-weight: 800;
+        line-height: 1.1em;
+        color: #1da1f2;
+        position: relative;
+        top: -5px;
+      }
+      
+      @media screen and (max-width: 842px){ 
+        .count {
+          font-size: 320%;
+        } 
+      }
+      @media screen and (max-width: 720px){ 
+        .count {
+          font-size: 200%;
+        } 
+      }
+      @media screen and (max-width: 480px){ 
+        .count {
+          font-size: 380%;
+        } 
+      }
+
+      p {
+        font-size: 84%;
+        opacity: .6;
+      }
+    }
+  }
+  .message-copy {
+    font-size: 90%;
+    line-height: 1.8em;
+    letter-spacing: .2px;
+    opacity: .8;
+    padding: 0 2%;
+  }
+}
+
+.App-footer {
+  text-align: center;
+  margin-bottom: 2%;
+  margin-top: 30px;
+  font-size: 14px;
+}
+@media screen and (max-width: 780px){ 
+  .App-footer {
+    font-size: 14px;
+  } 
+}
+@media screen and (max-width: 700px){ 
+  .App-footer {
+    font-size: 13px;
+  } 
+}
+@media screen and (max-width: 600px){ 
+  .App-footer {
+    font-size: 11px;
+  } 
+}

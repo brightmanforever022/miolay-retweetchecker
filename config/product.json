@@ -1,0 +1,31 @@
+{
+  "port": 8888,
+  "session": {
+    "ttl": 1209600,
+    "keys": ["ZnrjO0vP7erXa4UoJg8q1", "0fvBxlkw8Nnoeruhf7Sub"]
+  },
+  "cache": {
+    "lifetimeSeconds": 3600
+  },
+  "twitter": {
+    "oauth1": {
+      "callback": "https://miolay-retweetchecker.herokuapp.com/login/callback",
+      "consumerKey": "45wUovZfxo71MSIPJGBn7HOlA",
+      "consumerSecret": "JyGw917HJvgo3iwFvnMw8KTmkPvZcw5rZuvrXwUBkhrmWuqh6T",
+      "accessTokenKey": "1012412990438559745-D0fJYJldYym7vO19zBahzqORJ6lQHn",
+      "accessTokenSecret": "GnfB4DHvqy5hpzSZB6DNDlH4wsnOhBDRSHyiwwzvaxheU"
+    },
+    "limits": {
+      "timeline": 100,
+      "retweets": 100
+    }
+  },
+  "fakeThreshold" : 30,
+  "users": {
+    "whitelist": ["chrisrock", "zperbad765", "MNPhotoGlrl"],
+    "blacklist": ["patrickbytion"]
+  },
+  "mongodbUri": "",
+  "originURL": "https://miolay-retweetchecker.herokuapp.com"
+}
+  

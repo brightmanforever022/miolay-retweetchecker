@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="theme-color" content="#000000" />
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
     <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/vendors/css/grid.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,7 +25,9 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -37,5 +39,51 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="text/javascript" src="%PUBLIC_URL%/vendors/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var $captureRoof = $('.capture-roof');
+        if($captureRoof){
+          var onCaptureMouseOver = function(e){
+            var $captureRoof = $('.capture-roof');
+            var _this = $(this),
+              _isReal = _this.is('.real'),
+              _isSuspicious = _this.is('.suspicious'),
+              _isBots = _this.is('.bots');
+  
+            $captureRoof.addClass('hovering');
+            
+            if(_isReal){
+              $captureRoof.addClass('real');
+              if(_this.is('.regular')) $captureRoof.addClass('regular');
+              if(_this.is('.influencer')) $captureRoof.addClass('influencer');
+            }
+            if(_isSuspicious){
+              $captureRoof.addClass('suspicious');
+              if(_this.is('.highFollowerRatio')) $captureRoof.addClass('highFollowerRatio');
+              if(_this.is('.highRetweetRatio')) $captureRoof.addClass('highRetweetRatio');
+              if(_this.is('.highThreatLevel')) $captureRoof.addClass('highThreatLevel');
+            }
+            if(_isBots){
+              $captureRoof.addClass('bots');
+              if(_this.is('.account')) $captureRoof.addClass('account');
+              if(_this.is('.activity')) $captureRoof.addClass('activity');
+              if(_this.is('.accountAndActivity')) $captureRoof.addClass('accountAndActivity');
+            }
+  
+          };
+  
+          var onCaptureMouseOut = function(e){
+            var $captureRoof = $('.capture-roof');
+            $captureRoof.removeClass('hovering real suspicious bots influencer');
+            $captureRoof.removeClass('regular highFollowerRatio highRetweetRatio highThreatLevel account activity accountAndActivity');
+          };
+  
+          $(document).on('mouseover', "li.capture", onCaptureMouseOver);
+          $(document).on('mouseout', "li.capture", onCaptureMouseOut);
+        }
+      });
+  
+    </script>
   </body>
 </html>

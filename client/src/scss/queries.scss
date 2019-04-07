@@ -1,0 +1,173 @@
+@import "vars";
+
+// Big tablets to monitors: 481px to 767px
+@media only screen and (max-width: 1200px) {
+}
+
+// Small tablets to big tablets: 768px to 1023
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 800px) {
+  .App-body .analysis-box .anal-inner {
+    .result-container.fishy {
+      .adjective {
+        font-size: 60px;
+        margin-top: 15px;
+      }
+    }
+    .result-container.bots {
+      .adjective {
+        font-size: 60px;
+        margin-top: 15px;
+      }
+    }
+    .result-container.real {
+      .adjective {
+        font-size: 60px;
+        margin-top: 15px;
+      }
+    }
+    .result-container.suspicious {
+      .adjective {
+        font-size: 30px;
+        margin-top: 15px;
+      }
+    }
+    .result-container .chart-description .percentage {
+      font-size: 45px;
+    }
+    .result-container .result-icon {
+      font-size: 60px;
+      margin-top: 15px;
+    }
+  }
+}
+
+
+// Small phones to small tablets: 481px to 767px
+@media only screen and (max-width: 767px) {
+  .suspicious-users .text-left .hide-sm { display: none; }
+  .error-message { margin-top: -3px!important; }
+}
+
+@media only screen and (max-width: 735px) {
+  .counts span.search-date { margin-right: 0!important; }
+}
+
+// Point where the 3 cols on upper report are no longer maintainable
+@media only screen and (max-width: 690px) {
+  .retweet-report {
+    .col-doughnut { display: none; }
+    .col-capture-roof {
+      width: 59.2%;
+    }
+    .col-retweeter-analysis {
+      width: 39.2%;
+    }
+  }
+  .suspicious-users .text-left .hide-sm { display: inline; }
+}
+
+// Too small for recent retweeters avatar list
+@media only screen and (max-width: 510px) {
+  .App-body {
+    .retweet-report {
+      .col-capture-roof { display: none; }
+
+      .retweeter-analysis {
+        padding-right: 0%;
+      }
+
+      .col-doughnut {
+        display: block;
+        width: 57.2%;
+        overflow: hidden;
+        text-align: center;
+        padding-top: 3%;
+
+        canvas {
+          width: 80% !important;
+          height: 80% !important;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .suspicious-users .text-left .hide-sm { display: none; }
+}
+
+// Small phones: 0px to 480px
+@media only screen and (max-width: 480px) {
+
+  .App-body .recent-list .recent-entries .entry.tweet .content {
+    border: none;
+  }
+
+  .App-body .analysis-box .anal-inner {
+    padding: 0 4% 4%;
+    border-top: 1px solid #e6eff2;
+
+    .result-container {
+      text-align: center;
+      position: relative;
+      top: -10px;
+
+      .adverb {
+        display: inline;
+        font-size: 1.6em !important;
+      }
+
+      .adjective {
+        display: inline;
+        font-size: 1.6em !important;
+        top: 0;
+        left: 4px !important;
+      }
+
+      .result-icon {
+        font-size: 5vw;
+        position: relative;
+        top: -2px;
+        left: 10px;
+      }
+    }
+  }
+
+  .retweet-report {
+    .col-retweeter-analysis {
+      margin-left: 1.6%;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .App-body {
+    .retweet-report {
+      .col-retweeter-analysis {
+        box-sizing: border-box;
+        padding: 0 1.6%;
+        width: 100%;
+        margin: 0;
+      }
+      .col-doughnut {
+        display: none;
+      }
+    }
+    .analysis-box a.analysis-link {
+      display: block;
+      position: relative;
+      width: 100%;
+      top: auto;
+    }
+  }
+  .suspicious-users .text-left .hide-sm { display: inline; }
+  .search-container {
+    .input-field {
+      input {
+        padding: 0 5px 0 20px;
+      }
+    }
+  }
+}

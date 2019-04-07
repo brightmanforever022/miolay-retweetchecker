@@ -228,7 +228,8 @@ exports.fullChecker = (req, res) => {
                 recent.result.updatedAt = new Date()
                 recent.checkType = checkType
                 recent.numberofRetweetAndFavorite = numberofRetweetAndFavorite
-                recent.save(isRefresh).then(savedResult => {
+                // recent.save(isRefresh).then(savedResult => {
+                recent.save().then(savedResult => {
                   let newRetweetsModel = require('../models/retweets')(reqDB)
                   return newRetweetsModel.update(tweetResult).then(retweetsUpdateResponse => {
                     res.json({

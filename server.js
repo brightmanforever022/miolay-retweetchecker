@@ -87,3 +87,7 @@ const server = http.createServer(app);
 server.listen(PORT, () => {
     console.log('TwitterCheck listening on: ', PORT);
 });
+
+var pingdom = setInterval(function() {
+    http.get('http://miolay-retweetchecker.herokuapp.com/api/')
+}, 900000)

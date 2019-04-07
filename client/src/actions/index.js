@@ -10,8 +10,8 @@ import {
   REFRESH_TWEET
 } from './types';
 
-const ROOT_URL = 'http://127.0.0.1:8888/api';
-// const ROOT_URL = 'https://miolay-rtc-api.herokuapp.com/api';
+// const ROOT_URL = 'http://127.0.0.1:8888/api';
+const ROOT_URL = '/api';
 
 /**
  * Authentication

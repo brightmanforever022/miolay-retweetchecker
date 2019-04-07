@@ -1,0 +1,40 @@
+{
+  "name": "miolay-retweetchecker",
+  "version": "1.0.0",
+  "description": "retweet checker",
+  "main": "server.js",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonachan1/miolay-retweetchecker.git"
+  },
+  "keywords": [
+    "tweet",
+    "retweet",
+    "search",
+    "check",
+    "react",
+    "node",
+    "express"
+  ],
+  "author": "Leona Chan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonachan1/miolay-retweetchecker/issues"
+  },
+  "homepage": "https://github.com/leonachan1/miolay-retweetchecker#readme"
+}

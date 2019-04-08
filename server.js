@@ -68,7 +68,7 @@ router(app);
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-//production mode
+// production mode
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   //

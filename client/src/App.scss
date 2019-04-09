@@ -186,7 +186,11 @@
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-
+    .no-data {
+      color: red;
+      text-align: center;
+      font-size: 24px;
+    }
     .toolbar {
       position: absolute;
       right: -70px;

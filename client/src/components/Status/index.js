@@ -79,9 +79,10 @@ class Status extends Component {
     const { recent } = this.props;
     let searchResults = [];
     let loader = this.state.isGetting ? <Loader key="profileLoader" />:null;
+    let noData = this.state.isGetting ? null : <div class="no-data">There are no data for this status</div>
     searchResults.push(loader);
-    const hasRecentRetweeters = recent.retweeters.length > 0;
     if( recent.tweetData ) {
+      const hasRecentRetweeters = recent.retweeters.length > 0;
       var keyValue = 1;
       recent.tweetData.forEach(tweetItem => {
         searchResults.push(<Tweet
@@ -110,6 +111,8 @@ class Status extends Component {
           searchResults.push(<TeaserBlock id="381" key="381" />);
         }
       }
+    } else {
+      searchResults.push(noData)
     }
 
     return (

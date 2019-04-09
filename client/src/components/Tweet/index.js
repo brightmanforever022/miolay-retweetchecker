@@ -98,6 +98,8 @@ class Tweet extends Component {
       );
       if (this.props.inRecent !== 'yes') {
         refreshButton = null
+        // Change the url of browser
+        window.history.pushState("", "", '/status/' + this.props.retweetId)
       }
     } else {
       analysisLink = (

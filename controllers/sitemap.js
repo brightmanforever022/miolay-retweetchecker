@@ -8,8 +8,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 const originalUrl = config.originURL
 
-console.log('origin url: ', originalUrl)
-
 exports.getSitemap = (req, res) => {
   var sitemap = sm.createSitemap ({
     hostname: originalUrl,
@@ -21,7 +19,8 @@ exports.getSitemap = (req, res) => {
     
     retweetList.map(retweet => {
       let retweetId = retweet.tweet.link.split('/status/').pop()
-      let retweetUrl = '/status/' + retweetId
+			let retweetUrl = '/status/' + retweetId
+			console.log('retweet url: ', retweetUrl)
       sitemap.add({url: retweetUrl});
     })
 

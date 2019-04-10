@@ -13,7 +13,7 @@ exports.getSitemap = (req, res) => {
         console.log('retweet link: ', retweet.tweet.link)
     })
 
-    res.send(result)
+    res.send(retweetList)
   }).catch(error => {
     console.error(error)
     res.status(500).json(error)

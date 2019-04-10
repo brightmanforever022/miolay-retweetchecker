@@ -130,7 +130,6 @@ exports.fullChecker = (req, res) => {
   reqDB = req.db
   reqTwitter = req.twitter
   var authorizedUser = false
-  // reqTwitter.getFavorites('jimmfelton').then(result => {console.log(result)})
   // If not authenticated with twitter account, authenticate with internal twitter api account access
   // twitter.oauth1.authorize(req.body.twitterRequestTokenKey, req.body.twitterRequestTokenSecret, req.query.oauth_verifier).then(result => {
   let twitUserName = req.body.user_name
@@ -173,7 +172,7 @@ exports.fullChecker = (req, res) => {
         return getOne(
           'tweet',
           require('../models/retweets')(reqDB),
-          checker.split('/').pop(),
+          searchTerm,
           reqTwitter.getRetweets,
           { count: config.twitter.limits.retweets, tweet_mode: 'extended' },
           authorizedUser ? 'full' : 'quick',
@@ -187,9 +186,9 @@ exports.fullChecker = (req, res) => {
           recent.id = uuid4()
           recent.type = 'tweet'
           recent.checkType = checkType
-          recent.search = checker.split('/').pop()
+          recent.search = searchTerm
           recent.result = tweetResult
-          recent.result.retweetId = checker.split('/').pop()
+          recent.result.retweetId = searchTerm
           return getOne(
             'user',
             require('../models/user')(reqDB),
@@ -275,9 +274,9 @@ exports.fullChecker = (req, res) => {
           // recent.id     = uuid4();
           // recent.type   = 'tweet';
           // recent.checkType = checkType;
-          // recent.search = checker.split('/').pop();
+          // recent.search = searchTerm;
           // recent.result = retweetsResult[0];
-          // recent.result.retweetId = checker.split('/').pop();
+          // recent.result.retweetId = searchTerm;
           // recent.result.probabilityMatrix = probabilityMatrix;
 
           // return recent.save().then(recentSaveResult => {

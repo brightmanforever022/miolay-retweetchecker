@@ -3,6 +3,7 @@ const Profile = require('./controllers/profile');
 const Recent = require('./controllers/recent');
 const Status = require('./controllers/status');
 const Auth = require('./controllers/auth');
+const Sitemap = require('./controllers/sitemap');
 
 // const cors = require('cors');
 
@@ -26,7 +27,5 @@ module.exports = (app) => {
     app.post('/api/status', Status.getStatus);
 
     // sitemap
-    app.get('/sitemap.xml', (req, res) => {
-        console.log('route sitemap.xml')
-    })
+    app.get('/sitemap.xml', Sitemap.getSitemap)
 };

@@ -17,6 +17,7 @@
     "mongodb": "^2.2.33",
     "oauth": "^0.9.15",
     "path": "^0.12.7",
+    "sitemap": "^2.1.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {

@@ -25,5 +25,8 @@ module.exports = (app) => {
     // API for Status
     app.post('/api/status', Status.getStatus);
 
-    // 
+    // sitemap
+    app.get('/sitemap.xml', (req, res) => {
+        console.log('route sitemap.xml')
+    })
 };

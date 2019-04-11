@@ -15,6 +15,7 @@ import LoginCallback from './components/Login/loginCallback';
 import Logout from './components/Logout';
 import About from './components/About';
 import Contact from './components/Contact';
+import Sitemap from './components/Sitemap';
 
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
@@ -43,6 +44,7 @@ ReactDOM.render(
           <Route exact path='/logout' component={Logout} />
           <Route exact path='/about' component={About} />
           <Route exact path='/contact' component={Contact} />
+          <Route exact path='/sitemap' component={Sitemap} />
           {/*<Route path="/profile/:search" component={Profile} />*/}
           <Route path="/status/:search" component={Status} />
           <Route path="**" component={Home} />

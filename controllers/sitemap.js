@@ -20,8 +20,7 @@ exports.getSitemap = (req, res) => {
     retweetList.map(retweet => {
       let retweetId = retweet.tweet.link.split('/status/').pop()
 			let retweetUrl = '/status/' + retweetId
-			console.log('retweet url: ', retweetUrl)
-      sitemap.add({url: retweetUrl});
+			sitemap.add({url: retweetUrl});
     })
 
     res.send(sitemap.toString())

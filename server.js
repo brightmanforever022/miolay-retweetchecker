@@ -87,5 +87,5 @@ server.listen(PORT, () => {
 });
 
 var pingdom = setInterval(function() {
-    http.get('http://miolay-retweetchecker.herokuapp.com/api/')
+    http.get(config.originURL + '/api/')
 }, 900000)

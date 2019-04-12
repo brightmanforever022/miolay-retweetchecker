@@ -5,6 +5,7 @@ export const REDIRECT_USER = 'redirect_user';
 export const FETCH_PROFILE = 'fetch_profile';
 export const FETCH_RECENT = 'fetch_recent';
 export const REFRESH_TWEET = 'refresh_tweet';
+export const FETCH_SITEMAP = 'fetch_sitemap';
 
 export const FETCH_RETWEETS = 'fetch_retweets';
 

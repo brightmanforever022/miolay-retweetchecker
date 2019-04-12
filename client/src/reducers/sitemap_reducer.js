@@ -1,11 +1,11 @@
 import {
-  FETCH_PROFILE
+  FETCH_SITEMAP
 } from '../actions/types';
 
 export default function(state={}, action) {
   switch(action.type) {
-    case FETCH_PROFILE:
-      return { ...state, user: action.payload };
+    case FETCH_SITEMAP:
+      return { ...state, sitemap: action.payload };
     default:
       return state;
   }

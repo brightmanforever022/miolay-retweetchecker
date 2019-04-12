@@ -7,7 +7,8 @@ import {
   FETCH_RECENT,
   FETCH_RETWEETS,
   FETCH_SEARCH,
-  REFRESH_TWEET
+  REFRESH_TWEET,
+  FETCH_SITEMAP
 } from './types';
 
 // const ROOT_URL = 'http://127.0.0.1:8888/api';
@@ -240,6 +241,25 @@ export function refreshTwitter(value) {
         payload: {error: error},
       });
     });
+  }
+}
+
+export function getSitemap() {
+
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/sitemap`).then(response => {
+      console.log('sitemap response: ', response)
+      dispatch({
+        type: FETCH_SITEMAP,
+        payload: response.data,
+      });
+    }).catch(error => {
+      console.log('sitemap error: ', error)
+      dispatch({
+        type: FETCH_SITEMAP,
+        payload: {error: error}
+      })
+    })
   }
 }
 

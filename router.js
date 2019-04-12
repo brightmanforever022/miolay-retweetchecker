@@ -27,5 +27,5 @@ module.exports = (app) => {
     app.post('/api/status', Status.getStatus);
 
     // sitemap
-    app.get('/sitemap.xml', Sitemap.getSitemap)
+    app.get('/api/sitemap', Sitemap.getSitemap)
 };

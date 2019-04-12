@@ -9,7 +9,7 @@
   },
   "twitter": {
     "oauth1": {
-      "callback": "https://miolay-retweetchecker.herokuapp.com/login/callback",
+      "callback": "http://www.retweetchecker.com/login/callback",
       "consumerKey": "45wUovZfxo71MSIPJGBn7HOlA",
       "consumerSecret": "JyGw917HJvgo3iwFvnMw8KTmkPvZcw5rZuvrXwUBkhrmWuqh6T",
       "accessTokenKey": "1012412990438559745-D0fJYJldYym7vO19zBahzqORJ6lQHn",
@@ -26,6 +26,6 @@
     "blacklist": ["patrickbytion"]
   },
   "mongodbUri": "",
-  "originURL": "https://miolay-retweetchecker.herokuapp.com"
+  "originURL": "http://miolay-retweetchecker.herokuapp.com"
 }
   

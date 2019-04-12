@@ -66,7 +66,7 @@ app.use(helmet());
 router(app);
 
 // //Static file declaration
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // production mode
 if(process.env.NODE_ENV === 'production') {
@@ -76,9 +76,9 @@ if(process.env.NODE_ENV === 'production') {
   })
 }
 // //build mode
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/client/public/index.html'));
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/public/index.html'));
+})
 
 // Server Setup
 const server = http.createServer(app);

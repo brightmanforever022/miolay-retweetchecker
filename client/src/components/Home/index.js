@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../scss/index.scss';
 import '../../App.scss';
 import '../../scss/queries.scss';
+import Header from '../Header';
+import Footer from '../Footer';
 import Searchbar from '../Searchbar';
 import RecentList from '../RecentList';
 import Tweet from '../Tweet';
@@ -100,14 +102,18 @@ class Home extends Component {
     }
     
     return (
-      <section className="App-body">
+      <div className="App">
+        <Header />
+        <section className="App-body">
           <h1 className="main-title">Check Fake Twitter Retweets</h1>
           <Searchbar />
           <div className="searchResults">
             {searchResults}
           </div>
           <RecentList />
-      </section>
+        </section>
+        <Footer />
+      </div>
     );
   }
 }

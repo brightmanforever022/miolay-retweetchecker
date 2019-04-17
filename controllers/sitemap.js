@@ -9,23 +9,22 @@ if (process.env.NODE_ENV === 'development') {
 const originalUrl = config.originURL
 
 exports.getSitemap = (req, res) => {
-  console.log('arrive request to controller')
   var sitemap = sm.createSitemap ({
     hostname: originalUrl,
     cacheTime: 600000
   });
   const retweets = require('../models/retweets')(req.db)
-  retweets.find({}, { tweet: 1 }).then(retweetList => {
+  retweets.getTweetList().then(retweetList => {
     
     retweetList.map(retweet => {
       let retweetId = retweet.tweet.link.split('/status/').pop()
 			let retweetUrl = '/status/' + retweetId
-			sitemap.add({url: retweetUrl});
+			sitemap.add({url: retweetUrl})
     })
 
     res.json({
       type: 'sitemap',
-      data: sitemap.toString()
+      sitemap: sitemap.toString()
     })
   }).catch(error => {
     console.error(error)

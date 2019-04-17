@@ -5,8 +5,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Home from './components/Home';
 // import Profile from './components/Profile';
 import Status from './components/Status';
@@ -36,7 +34,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div className="App">
-        <Header />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
@@ -44,12 +41,11 @@ ReactDOM.render(
           <Route exact path='/logout' component={Logout} />
           <Route exact path='/about' component={About} />
           <Route exact path='/contact' component={Contact} />
-          <Route exact path='/sitemap' component={Sitemap} />
+          <Route exact path='/sitemap.xml' component={Sitemap} />
           {/*<Route path="/profile/:search" component={Profile} />*/}
           <Route path="/status/:search" component={Status} />
           <Route path="**" component={Home} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   </Provider>

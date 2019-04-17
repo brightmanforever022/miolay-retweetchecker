@@ -26,6 +26,6 @@
     "blacklist": ["patrickbytion"]
   },
   "mongodbUri": "",
-  "originURL": "http://miolay-retweetchecker.herokuapp.com"
+  "originURL": "www.retweetchecker.com"
 }
   

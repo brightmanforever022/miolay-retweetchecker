@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../scss/index.scss';
 import '../../App.scss';
 import '../../scss/queries.scss';
+import Header from '../Header';
+import Footer from '../Footer';
 import Tweet from '../Tweet';
 import Report from '../Report';
 import TeaserBlock from '../TeaserBlock';
@@ -88,7 +90,7 @@ class Status extends Component {
         searchResults.push(<Tweet
           id={'statustweet_' + keyValue}
           key={'statustweet_' + keyValue}
-          { ... tweetItem }
+          { ...tweetItem }
           expanded={hasRecentRetweeters}
         />);
         keyValue ++
@@ -106,9 +108,9 @@ class Status extends Component {
             id="status_482"
             key="status_482"
             { ... recent.reportData }
-          />);
+          />)
         } else {
-          searchResults.push(<TeaserBlock id="381" key="381" />);
+          searchResults.push(<TeaserBlock id="381" key="381" />)
         }
       }
     } else {
@@ -117,11 +119,15 @@ class Status extends Component {
 
     return (
       <div className="App">
-        <section className="App-body">
-            <div className="profile-section searchResults">
-              {searchResults}
-            </div>
-        </section>
+        <Header />
+        <div className="App">
+          <section className="App-body">
+              <div className="profile-section searchResults">
+                {searchResults}
+              </div>
+          </section>
+        </div>
+        <Footer />
       </div>
     );
   }

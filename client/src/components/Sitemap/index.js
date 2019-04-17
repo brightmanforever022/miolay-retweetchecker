@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Loader from '../Loader';
-import { getSitemap } from '../../actions/index';
+import { fetchSitemap } from '../../actions/index';
 
 import '../../scss/index.scss';
 import '../../App.scss';
@@ -10,29 +9,31 @@ import '../../scss/queries.scss';
 class Sitemap extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     
     this.state = {
       isSearching: true
-    };
+    }
   }
 
+  componentWillMount() {
+    this.props.fetchSitemap()
+  }
   componentWillReceiveProps (nextProps) {
-    this.setState({isSearching: false});
+    this.setState({isSearching: false})
   }
 
   render() {
-    let sitemapText = this.state.isSearching ? <Loader /> : this.props.sitemap
+    let sitemapText = this.props.sitemap.sitemap
     return (
       <section className="App-body">
-          <h1 className="main-title">Sitemap</h1>
-          { sitemapText }
+        { sitemapText }
       </section>
-    );
+    )
   }
 }
 
 function mapStateToProps(state) {
-  return { sitemap: state.sitemap };
+  return { sitemap: state.sitemap }
 }
-export default connect(mapStateToProps, { getSitemap })(Sitemap);
+export default connect(mapStateToProps, { fetchSitemap })(Sitemap)

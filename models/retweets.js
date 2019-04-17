@@ -24,6 +24,10 @@ const retweets = function (db) {
     return db.find('retweets', { searchTerm: _this.idPrefix + id });
   };
 
+  this.getTweetList = () => {
+    return db.findOnly('retweets', {}, { tweet: 1 });
+  }
+
   this.save = () => {
     let retweetFromAPI = _this.get();
     return db.find('retweets', { searchTerm: retweetFromAPI.searchTerm}).then(retweetList => {

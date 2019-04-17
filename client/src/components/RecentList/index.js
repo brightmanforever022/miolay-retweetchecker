@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 // import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { fetchRecent } from '../../actions/index';
-import Loader from '../Loader';
+import { connect } from 'react-redux'
+import { fetchRecent } from '../../actions/index'
+import Loader from '../Loader'
 
-import Tweet from '../Tweet';
+import Tweet from '../Tweet'
 
 class RecentList extends Component {
 
@@ -13,7 +13,7 @@ class RecentList extends Component {
     isSearching: true
   };
   componentDidMount() {
-    this.props.fetchRecent();
+    this.props.fetchRecent()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,8 +24,8 @@ class RecentList extends Component {
   }
 
   render(){
-    let loader = this.state.isSearching ? <Loader />:null;
-    let tweetsJSX = [];
+    let loader = this.state.isSearching ? <Loader /> : null
+    let tweetsJSX = []
     if(this.state.recent.length > 0) {
       for ( let i in this.state.recent ) {
 
@@ -36,7 +36,7 @@ class RecentList extends Component {
             inRecent="yes"
             { ...this.state.recent[i] }
           />
-        );
+        )
       }
     }
     return (
@@ -47,12 +47,12 @@ class RecentList extends Component {
           {tweetsJSX}
         </div>
       </div>
-    );
+    )
   }
-};
-
-function mapStateToProps(state) {
-  return { recent: state.recent };
 }
 
-export default connect(mapStateToProps, { fetchRecent })(RecentList);
+function mapStateToProps(state) {
+  return { recent: state.recent }
+}
+
+export default connect(mapStateToProps, { fetchRecent })(RecentList)

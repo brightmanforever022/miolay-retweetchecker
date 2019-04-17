@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import '../../scss/index.scss';
-import '../../App.scss';
-import '../../scss/queries.scss';
+import React, { Component } from 'react'
+import '../../scss/index.scss'
+import '../../App.scss'
+import '../../scss/queries.scss'
 import Header from '../Header'
 import Footer from '../Footer'
 
@@ -17,8 +17,8 @@ class Contact extends Component {
         </section>
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-export default Contact;
+export default Contact

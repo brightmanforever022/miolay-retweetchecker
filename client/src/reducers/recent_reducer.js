@@ -2,7 +2,7 @@ import {
   FETCH_RECENT,
   FETCH_SEARCH,
   REFRESH_TWEET
-} from '../actions/types';
+} from '../actions/types'
 
 const initState = {
   recentList: [],
@@ -24,12 +24,12 @@ export default function(state = initState, action) {
     }
     case FETCH_SEARCH: {
       if(action.payload.error) {
-        return {error: action.payload.error};
+        return { error: action.payload.error }
       } else {
         const { data, type, checkType, addedRecent } = action.payload
         let { recentList } = state
-        let newRecentList = [];
-        let tweetData = [];
+        let newRecentList = []
+        let tweetData = []
         if (Array.isArray(data)) {
           data.forEach(item => {
             let tempRecent = {
@@ -47,16 +47,16 @@ export default function(state = initState, action) {
               retweetId: item.tweet.id,
               retweeters: item.retweeters,
               type: 'user'
-            };
-            newRecentList.push(tempRecent);
-            tweetData.push(tempRecent);
-          });
+            }
+            newRecentList.push(tempRecent)
+            tweetData.push(tempRecent)
+          })
 
         } else {
-          let newRecent = {};
+          let newRecent = {}
           if (type === 'user') {
             newRecent = {
-              showFull: checkType==='full'?true:false,
+              showFull: checkType === 'full' ? true : false,
               name: data.tweet.user.name,
               username: data.tweet.user.screenName,
               avatar: data.tweet.user.profileImageUrl,
@@ -70,10 +70,10 @@ export default function(state = initState, action) {
               retweetId: data.tweet.id,
               retweeters: data.retweeters,
               type: 'user'
-            };
+            }
           } else {
             newRecent = {
-              showFull: checkType==='full'?true:false,
+              showFull: checkType === 'full' ? true : false,
               name: data.tweet.user.name,
               username: data.tweet.user.screenName,
               avatar: data.tweet.user.profileImageUrl,
@@ -87,12 +87,12 @@ export default function(state = initState, action) {
               retweetId: data.tweet.id,
               retweeters: data.retweeters,
               type: 'tweet'
-            };
+            }
           }
           if (addedRecent && newRecent.showFull) {
-            newRecentList.push(newRecent);
+            newRecentList.push(newRecent)
           }
-          tweetData.push(newRecent);
+          tweetData.push(newRecent)
         }
 
         return {
@@ -111,8 +111,8 @@ export default function(state = initState, action) {
       }
     }
     case REFRESH_TWEET: {
-      const { data, checkType } = action.payload;
-      let { recentList } = state;
+      const { data, checkType } = action.payload
+      let { recentList } = state
       for (let i in recentList) {
         if (recentList[i].retweetId === data.tweet.id) {
           recentList[i] = {
@@ -130,7 +130,7 @@ export default function(state = initState, action) {
             retweetId: data.tweet.id,
             retweeters: data.retweeters,
             type: 'tweet'
-          };
+          }
         }
       }
         
@@ -141,7 +141,7 @@ export default function(state = initState, action) {
       }
     }
     default:
-      return state;
+      return state
   }
 }
 

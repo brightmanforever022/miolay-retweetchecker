@@ -1,5 +1,5 @@
-import React from 'react';
-import './Loader.scss';
+import React from 'react'
+import './Loader.scss'
 
 const loader = (props) => {
   
@@ -15,7 +15,7 @@ const loader = (props) => {
         <div className="ball"></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default loader;
+export default loader

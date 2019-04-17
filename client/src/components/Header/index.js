@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import logo from '../../logo.svg';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import logo from '../../logo.svg'
 
 class Header extends Component {
 
@@ -8,23 +8,23 @@ class Header extends Component {
     activeNavItem: 'checker',
     //loggedIn: true,
     showDropdown: false
-  };
+  }
   
   componentDidMount() {
-    const path = document.location.href;
+    const path = document.location.href
     if (path.indexOf('about') !== -1) {
-      this.setState({activeNavItem: 'about'});
+      this.setState({activeNavItem: 'about'})
     } else if (path.indexOf('contact') !== -1) {
-      this.setState({activeNavItem: 'contact'});
+      this.setState({activeNavItem: 'contact'})
     } else {
-      this.setState({activeNavItem: 'checker'});
+      this.setState({activeNavItem: 'checker'})
     }
   }
   
   toggleDropdown = (e) => {
-    e.preventDefault();
-    this.setState({showDropdown: !this.state.showDropdown});
-  };
+    e.preventDefault()
+    this.setState({showDropdown: !this.state.showDropdown})
+  }
 
   render(){
     // Navigation Active Item Selection
@@ -40,18 +40,18 @@ class Header extends Component {
     };
     */
     // Login / User Dropdown
-    let userControls = <a href="/login" className="login-btn">Login</a>;
+    let userControls = <a href="/login" className="login-btn">Login</a>
     if(this.props.loggedIn) {
       const dropdown = this.state.showDropdown ? (<ul className="dropdown">
         <li><a href="/settings"><i className="fas fa-cog"></i> Settings</a></li>
         <li><a href="/logout"><i className="fas fa-sign-out-alt"></i> Logout</a></li>
-      </ul>) : null;
+      </ul>) : null
       userControls = (
         <div>
           <button className="btn-dropdown" onClick={this.toggleDropdown}><img src={this.props.image} className="avatar" alt="" /> <span className="my-username">@{this.props.username}</span></button>
           {dropdown}
         </div>
-      );
+      )
     }
 
     return (
@@ -70,7 +70,7 @@ class Header extends Component {
           </div>
         </div>
       </header>
-    );
+    )
   }
 }
 
@@ -80,6 +80,6 @@ const mapStateToProps = state =>{
     username: state.auth.username,
     image: state.auth.image
   }
-};
+}
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(Header)

@@ -12,7 +12,7 @@ exports.getSitemap = (req, res) => {
   var sitemap = sm.createSitemap ({
     hostname: originalUrl,
     cacheTime: 600000
-  });
+  })
   const retweets = require('../models/retweets')(req.db)
   retweets.getTweetList().then(retweetList => {
     

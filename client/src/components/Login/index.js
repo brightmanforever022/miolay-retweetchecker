@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {Route } from 'react-router-dom';
-import {signinUser} from '../../actions';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {Route } from 'react-router-dom'
+import {signinUser} from '../../actions'
 
 class Login extends Component {
     componentDidMount(){
-        this.props.signinUser();
+        this.props.signinUser()
     }
     render() {
         return <div style={{color:"#fff"}}>
@@ -16,12 +16,12 @@ class Login extends Component {
 
 const mapStateToProps = state =>{
     return {
-        redirect: state.auth.redirect 
+        redirect: state.auth.redirect
     }
-};
+}
 
 const mapDispatchToProps = dispatch => ({
     signinUser: () => dispatch(signinUser())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

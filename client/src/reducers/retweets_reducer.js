@@ -1,6 +1,6 @@
 import {
   REFRESH_TWEET
-} from '../actions/types';
+} from '../actions/types'
 
 const initState = {
   tweetData: null,
@@ -28,7 +28,7 @@ export default function(state = initState, action) {
         retweetId: data.tweet.id,
         retweeters: data.retweeters,
         type: 'tweet'
-      };
+      }
         
       return {
         ...state,
@@ -38,11 +38,11 @@ export default function(state = initState, action) {
       }
     }
     default:
-      return state;
+      return state
   }
 }
 
 function changeDateFormat(dateString) {
-  let originalDate = new Date(dateString);
-  return originalDate.toLocaleString('en-US').toLowerCase();
+  let originalDate = new Date(dateString)
+  return originalDate.toLocaleString('en-US').toLowerCase()
 }

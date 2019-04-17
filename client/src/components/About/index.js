@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import '../../scss/index.scss';
-import '../../App.scss';
-import '../../scss/queries.scss';
+import React, { Component } from 'react'
+import '../../scss/index.scss'
+import '../../App.scss'
+import '../../scss/queries.scss'
 import Header from '../Header'
 import Footer from '../Footer'
 
@@ -21,4 +21,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default About

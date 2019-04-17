@@ -1,62 +1,61 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { connect } from 'react-redux';
-import Loader from '../Loader';
-import { searchTwitter } from '../../actions/index';
+import { connect } from 'react-redux'
+import Loader from '../Loader'
+import { searchTwitter } from '../../actions/index'
 
 class Searchbar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     
     this.state = {
       isSearching: false,
       errorMessage: '',
       searchValue: ''
-    };
+    }
 
-    this.handleFormSearch = this.handleFormSearch.bind(this);
+    this.handleFormSearch = this.handleFormSearch.bind(this)
   }
 
   inputKeypress = (event) => {
     if (event.key === 'Enter') {
        this.handleFormSearch(event)
-       event.target.value = '';
+       event.target.value = ''
     } else {
-      let searchValue = event.target.value + event.key;
-      this.setState({ searchValue: searchValue });
+      let searchValue = event.target.value + event.key
+      this.setState({ searchValue: searchValue })
     }
-  };
+  }
 
   setSearchValue = (event) => {
-    let searchValue = event.key?event.target.value + event.key:event.target.value;
-    this.setState({ searchValue: searchValue });
+    let searchValue = event.key?event.target.value + event.key:event.target.value
+    this.setState({ searchValue: searchValue })
   }
 
   handleFormSearch(e) {
-    let searchValue = this.state.searchValue;
+    let searchValue = this.state.searchValue
     if (searchValue !== '') {
       if (searchValue.indexOf('status/') !== -1) {
-        this.setState({ isSearching: true, errorMessage: '', searchValue: ''});
-        this.props.searchTwitter(searchValue);
+        this.setState({ isSearching: true, errorMessage: '', searchValue: ''})
+        this.props.searchTwitter(searchValue)
       } else {
-        this.setState({ errorMessage: 'We support only searching of retweet' });
+        this.setState({ errorMessage: 'We support only searching of retweet' })
       }
     }else {
-      this.setState({ errorMessage: 'Must enter valid search terms' });
+      this.setState({ errorMessage: 'Must enter valid search terms' })
     }
-  };
+  }
   componentWillReceiveProps(nextProps) {
-    const { recent } = nextProps;
+    const { recent } = nextProps
     if (recent.error) {
-      this.setState({ isSearching: false, errorMessage: 'Sorry, looks like that tweet doesn\'t exist' });
+      this.setState({ isSearching: false, errorMessage: 'Sorry, looks like that tweet doesn\'t exist' })
     } else {
-      this.setState({ isSearching: false });
+      this.setState({ isSearching: false })
     }
-
   }
 
   render(){
-    let loader = this.state.isSearching ? <Loader />:null;
+    let loader = this.state.isSearching ? <Loader /> : null
     return (
       <div className="search-container">
         <div className="row">
@@ -71,12 +70,12 @@ class Searchbar extends Component {
           <div className="error-message col span-9-of-12">{this.state.errorMessage}</div>
         </div>
       </div>
-    );
+    )
   }
 }
 
 function mapStateToProps(state) {
-  return { recent: state.recent };
+  return { recent: state.recent }
 }
 
-export default connect(mapStateToProps, { searchTwitter })(Searchbar);
+export default connect(mapStateToProps, { searchTwitter })(Searchbar)

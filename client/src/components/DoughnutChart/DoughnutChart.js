@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Chart from 'chart.js';
+import React, { Component } from 'react'
+import Chart from 'chart.js'
 
 class DoughnutChart extends Component {
-  chart = null;
+  chart = null
 
   componentDidMount(){
-    const ctx = document.getElementById(this.props.id).getContext('2d');
+    const ctx = document.getElementById(this.props.id).getContext('2d')
 
     this.chart = new Chart(ctx, {
       type: 'doughnut',
@@ -24,12 +24,12 @@ class DoughnutChart extends Component {
       options: {
         legend: {display: false},
       }
-    });
+    })
   }
 
   componentWillReceiveProps(nextProps) {
     this.chart.data.datasets[0].data = [nextProps.real, nextProps.suspicious, nextProps.bots]
-    this.chart.update();
+    this.chart.update()
   }
 
   render(){
@@ -46,8 +46,8 @@ class DoughnutChart extends Component {
         >
         </canvas>
       </div>
-);
+    )
   }
 }
 
-export default DoughnutChart;
+export default DoughnutChart

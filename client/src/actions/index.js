@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 import {
   AUTH_USER,
   REDIRECT_USER,
@@ -225,8 +225,8 @@ export function searchTwitter(value) {
 }
 
 export function refreshTwitter(value) {
-  let tokens = localStorage.getItem('rtc-token')?localStorage.getItem('rtc-token'):''
-  const user_name = localStorage.getItem('user_name')?localStorage.getItem('user_name'):''
+  let tokens = localStorage.getItem('rtc-token') ? localStorage.getItem('rtc-token') : ''
+  const user_name = localStorage.getItem('user_name') ? localStorage.getItem('user_name') : ''
   return function(dispatch) {
     axios.post(`${ROOT_URL}/fullChecker${tokens}`,
       { check: value, user_name: user_name, refresh: 1 }

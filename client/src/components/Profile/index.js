@@ -48,7 +48,7 @@ class Profile extends Component {
     console.log('profile rendered')
     const { recent } = this.props
     let searchResults = []
-    let loader = this.state.isGetting ? <Loader key="profileLoader" />:null
+    let loader = this.state.isGetting ? <Loader key="profileLoader" /> : null
     searchResults.push(loader)
     const hasRecentRetweeters = recent.retweeters.length > 0
     if( recent.tweetData ) {

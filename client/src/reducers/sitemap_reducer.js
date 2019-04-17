@@ -1,6 +1,6 @@
 import {
   FETCH_SITEMAP
-} from '../actions/types';
+} from '../actions/types'
 
 const initState = {
   sitemap: null
@@ -9,8 +9,8 @@ const initState = {
 export default function(state=initState, action) {
   switch(action.type) {
     case FETCH_SITEMAP:
-      return { ...state, sitemap: action.payload.sitemap };
+      return { ...state, sitemap: action.payload.sitemap }
     default:
-      return state;
+      return state
   }
 }

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class TeaserBlock extends Component {
 
   state = {
     isSearching: true,
     searchTerm: null
-  };
+  }
 
   render(){
     return (
@@ -15,8 +15,8 @@ class TeaserBlock extends Component {
         <h3>Totally free and anonymous check.</h3>
         <a href="/login">Run Full Analysis</a>
       </div>
-    );
+    )
   }
 }
 
-export default TeaserBlock;
+export default TeaserBlock

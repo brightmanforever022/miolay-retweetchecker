@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchSitemap } from '../../actions/index';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchSitemap } from '../../actions/index'
 
-import '../../scss/index.scss';
-import '../../App.scss';
-import '../../scss/queries.scss';
+import '../../scss/index.scss'
+import '../../App.scss'
+import '../../scss/queries.scss'
 
 class Sitemap extends Component {
 

@@ -26,6 +26,6 @@
     "blacklist": ["patrickbytion"]
   },
   "mongodbUri": "",
-  "originURL": "www.retweetchecker.com"
+  "originURL": "https://www.retweetchecker.com"
 }
   

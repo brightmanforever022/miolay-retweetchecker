@@ -80,7 +80,7 @@ class Status extends Component {
   render() {
     const { recent } = this.props
     let searchResults = []
-    let loader = this.state.isGetting ? <Loader key="profileLoader" />:null
+    let loader = this.state.isGetting ? <Loader key="profileLoader" /> : null
     let noData = this.state.isGetting ? null : <div class="no-data">There are no data for this status</div>
     searchResults.push(loader)
     if( recent.tweetData ) {

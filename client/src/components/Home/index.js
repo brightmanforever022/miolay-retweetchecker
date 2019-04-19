@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import '../../scss/index.scss'
 import '../../App.scss'
 import '../../scss/queries.scss'
@@ -9,7 +10,6 @@ import RecentList from '../RecentList'
 import Tweet from '../Tweet'
 import Report from '../Report'
 import TeaserBlock from '../TeaserBlock'
-import {connect} from 'react-redux'
 
 class Home extends Component {
 

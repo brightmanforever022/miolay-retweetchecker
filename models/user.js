@@ -72,8 +72,8 @@ const user = function (db) {
     _this.calculateRealProbability()
     _this.generateProbabilityMatrix()
     _this.analyzeRetweeter()
-    // return _this.save();
-    return _this
+    return _this.save()
+    // return _this
   }
 
   this.setUserResult = (result, statusResult, userRetweeters, retweetId) => {

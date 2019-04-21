@@ -43,10 +43,10 @@ const retweets = function (db) {
 
   this.update = (row) => {
     return db.update('retweets', {searchTerm: row.searchTerm}, {
-      tweet: row.tweet, 
-      retweeters: row.retweeters, 
-      updatedAt: (new Date()), 
-      realCount: row.realCount, 
+      tweet: row.tweet,
+      retweeters: row.retweeters,
+      updatedAt: (new Date()),
+      realCount: row.realCount,
       searchTerm: row.searchTerm,
       numberofRetweetAndFavorite: row.numberofRetweetAndFavorite
     })
@@ -158,7 +158,7 @@ const retweets = function (db) {
       overall += 30
       accountScore += 30
     }
-    // console.log('current retweet: ', currentRetweet);
+    // console.log('current retweet: ', currentRetweet)
     if (currentRetweet.user.profile_image_url.indexOf('default_profile_images/default_profile') >= 0) {
       overall += 30
       accountScore += 30

@@ -43,7 +43,7 @@ class Report extends Component {
   }
 
   analyzeRetweeters = function(retweeters, tweetData) {
-    var realRetweeterFollowerCounts = [];
+    var realRetweeterFollowerCounts = []
     var analysis = {
       classification: null,
       majorityPercentage: null,
@@ -168,7 +168,7 @@ class Report extends Component {
         <a key={i} className="retweeter-link" href={"https://twitter.com/" + recent.retweeters[i].screenName} target="_blank" rel="noopener noreferrer">
           <img src={recent.retweeters[i].profileImageUrl} title="" className={linkClasses.join(' ')} alt="" />
         </a>
-      );
+      )
       // Calculate percents of each category
       if (recent.retweeters[i].analysis.classification === 'real') {
         realCount++
@@ -187,7 +187,7 @@ class Report extends Component {
           highThreatLevel++
         }
       } else { // Bots
-        bots++;
+        bots++
         if (recent.retweeters[i].analysis.justification.slug === 'account') {
           botsAccount++
         } else if (recent.retweeters[i].analysis.justification.slug === 'activity') {
@@ -212,7 +212,7 @@ class Report extends Component {
           We analyized {recent.searchResult.tweet.user.screenName}'s tweet from {recent.searchResult.tweet.date} to verify if his retweets were real or FAKE. When we last checked on {recent.searchResult.updatedAt.substr(0,10).replace(/-/g, '/')}, {recent.searchResult.tweet.user.screenName} had {recent.searchResult.tweet.counts.retweets} retweets, of which {analysis.percentages.real}% were real, or about {Math.floor(recent.searchResult.tweet.counts.retweets * analysis.percentages.real / 100)} retweets. We discovered only about {analysis.percentages.suspicious + analysis.percentages.bots}% of retweets where either suspecious or fake. This assessment is very good based on what we normally see.</p>
           <p>In terms of exposure and reach, {recent.searchResult.tweet.user.screenName} tweet potentially reached both his and his real retweeter's active followers. We call this Quality Reach because we don't count users that won't see it, such as fake, inactive, and suspecious users. Our analysis of {recent.searchResult.tweet.user.screenName} followers determined that about {analysis.percentages.bots}% of their followers are fake or inactive, leaving about {analysis.estimates.actualFollowerCount} of real active followers. The {Math.floor(recent.searchResult.tweet.counts.retweets * analysis.percentages.real / 100)} real users that retweeted this tweet have approximately {analysis.estimates.realRetweeterAverageFollowerCount} followers each on average. So a bit a math gives us their Quality Reach of {this.formatCount(analysis.estimates._estimatedQualityReach)} users.</p>
         </div>
-      );
+      )
     } else if (realPercent >= 50) {
       reportText = (
         <div>
@@ -221,7 +221,7 @@ class Report extends Component {
           We analyized {recent.searchResult.tweet.user.screenName}'s tweet from {recent.searchResult.tweet.date} to verify if his retweets were real or FAKE. When we last checked on {recent.searchResult.updatedAt.substr(0,10).replace(/-/g, '/')}, {recent.searchResult.tweet.user.screenName} had {recent.searchResult.tweet.counts.retweets} retweets, of which {analysis.percentages.real}% were real, or about {Math.floor(recent.searchResult.tweet.counts.retweets * analysis.percentages.real / 100)} retweets. We discovered that {analysis.percentages.suspicious + analysis.percentages.bots}% of retweets where either suspecious or fake. This assessment is definitely below average based on what we normally see, but it's not terrible.</p>
           <p>In terms of exposure and reach, {recent.searchResult.tweet.user.screenName} tweet potentially reached both his and his real retweeter's active followers. We call this Quality Reach because we don't count users that won't see it, such as fake, inactive, and suspecious users. Our analysis of {recent.searchResult.tweet.user.screenName} followers determined that about {analysis.percentages.bots}% of their followers are fake or inactive, leaving about {analysis.estimates.actualFollowerCount} of real active followers. The {Math.floor(recent.searchResult.tweet.counts.retweets * analysis.percentages.real / 100)} real users that retweeted this tweet have approximately {analysis.estimates.realRetweeterAverageFollowerCount} followers each on average. After working out some math, the tweet had a Quality Reach of about {this.formatCount(analysis.estimates._estimatedQualityReach)} users.</p>
         </div>
-      );
+      )
     } else {
       reportText = (
         <div>
@@ -381,7 +381,7 @@ class Report extends Component {
   }
 }
 
-// export default Report;
+// export default Report
 
 const mapStateToProps = state => {
   return {

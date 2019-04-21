@@ -64,7 +64,7 @@ const getRetweetByUsername = (type, model, check, apiMethod, apiMethodOptions, c
     // if (!result || result.length === 0 || isOutdated(result[0])) {
     return apiMethod(check, apiMethodOptions)
     // } else {
-    //   return Promise.resolve(result[0]);
+    //   return Promise.resolve(result[0])
     // }
   }).then(result => {
     if (!result._id) {
@@ -133,12 +133,12 @@ exports.fullChecker = (req, res) => {
   // If not authenticated with twitter account, authenticate with internal twitter api account access
   // twitter.oauth1.authorize(req.body.twitterRequestTokenKey, req.body.twitterRequestTokenSecret, req.query.oauth_verifier).then(result => {
   let twitUserName = req.body.user_name
-  // console.log('request: ', req.body);
+  // console.log('request: ', req.body)
   if (req.body.user_name.length > 0 && req.query.oauth_verifier) {
     authorizedUser = true
-    twitter.setUser(config.twitter.oauth1.accessTokenKey, config.twitter.oauth1.accessTokenSecret);
+    twitter.setUser(config.twitter.oauth1.accessTokenKey, config.twitter.oauth1.accessTokenSecret)
   } else {
-    twitter.setUser(config.twitter.oauth1.accessTokenKey, config.twitter.oauth1.accessTokenSecret);
+    twitter.setUser(config.twitter.oauth1.accessTokenKey, config.twitter.oauth1.accessTokenSecret)
   }
   let checker = req.body.check
   if (checker.indexOf(',') >= 0) {
@@ -263,21 +263,21 @@ exports.fullChecker = (req, res) => {
           { count: config.twitter.limits.timeline },
           authorizedUser ? 'full' : 'quick'
         ).then(tweetUserResult => {
-          // console.log('tweet user result: ', tweetUserResult);
+          // console.log('tweet user result: ', tweetUserResult)
           let probabilityMatrix = tweetUserResult.probabilityMatrix
-          // let newRetweetsModel = require('../models/retweets')(reqDB);
+          // let newRetweetsModel = require('../models/retweets')(reqDB)
           // return newRetweetsModel.update(retweetsResult[0]).then(retweetsUpdateResponse => {
-          // let checkType = authorizedUser?'full':'quick';
+          // let checkType = authorizedUser ? 'full' : 'quick'
           
           // Add / Update search result into recent
-          // let recent = require('../models/recent')(reqDB);
-          // recent.id     = uuid4();
-          // recent.type   = 'tweet';
-          // recent.checkType = checkType;
-          // recent.search = searchTerm;
-          // recent.result = retweetsResult[0];
-          // recent.result.retweetId = searchTerm;
-          // recent.result.probabilityMatrix = probabilityMatrix;
+          // let recent = require('../models/recent')(reqDB)
+          // recent.id     = uuid4()
+          // recent.type   = 'tweet'
+          // recent.checkType = checkType
+          // recent.search = searchTerm
+          // recent.result = retweetsResult[0]
+          // recent.result.retweetId = searchTerm
+          // recent.result.probabilityMatrix = probabilityMatrix
 
           // return recent.save().then(recentSaveResult => {
 
@@ -301,11 +301,11 @@ exports.fullChecker = (req, res) => {
               }
             })
           })
-          //   });
+          //   })
             
           // }).catch(updateError => {
-          //   console.log('error in updating retweets: ', updateError);
-          // });
+          //   console.log('error in updating retweets: ', updateError)
+          // })
         })
       }
     })

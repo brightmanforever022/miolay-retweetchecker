@@ -194,7 +194,7 @@ export function fetchRecent() {
             type: 'tweet'
           }
         }
-        recentList.push(temp);
+        recentList.push(temp)
       })
       dispatch({
         type: FETCH_RECENT,

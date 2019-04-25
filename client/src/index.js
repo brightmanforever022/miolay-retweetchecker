@@ -14,6 +14,7 @@ import Logout from './components/Logout'
 import About from './components/About'
 import Contact from './components/Contact'
 import Sitemap from './components/Sitemap'
+import EchoKey from './components/EchoKey'
 
 import reducers from './reducers'
 import { AUTH_USER } from './actions/types'
@@ -44,6 +45,7 @@ ReactDOM.render(
           <Route exact path='/sitemap.xml' component={Sitemap} />
           {/*<Route path="/profile/:search" component={Profile} />*/}
           <Route path="/status/:search" component={Status} />
+          <Route path="/.well-known/acme-challenge/:content" component={EchoKey} />
           <Route path="**" component={Home} />
         </Switch>
       </div>

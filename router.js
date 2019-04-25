@@ -31,6 +31,6 @@ module.exports = (app) => {
 
 	// for domain
 	app.get('/.well-known/acme-challenge/:content', function(req, res) {
-		res.send('xxxxxxxxxxxx-yyyy.zzzzzzzzzzzzzzzzzzz')
+		res.send('v6WjfaIvbLhL0kCRmpwxcXwj2Vy0gUIlcgknJndTc9o.EqAY2MwUTFFakty8jFLcY8eSo-7N_6Pk5TUHUj10I2Q')
 	})
 }

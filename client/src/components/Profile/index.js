@@ -45,7 +45,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log('profile rendered')
     const { recent } = this.props
     let searchResults = []
     let loader = this.state.isGetting ? <Loader key="profileLoader" /> : null

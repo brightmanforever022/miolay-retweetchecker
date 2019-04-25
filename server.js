@@ -81,7 +81,8 @@ if(process.env.NODE_ENV === 'production') {
 }
 // //build mode
 app.get('/.well-known/acme-challenge/:content', (req, res) => {
-	res.sendFile(path.join(__dirname + '/public/.well-known/acme-challenge/v6WjfaIvbLhL0kCRmpwxcXwj2Vy0gUIlcgknJndTc9o'))
+	console.log('arrive ssl out')
+	res.send('v6WjfaIvbLhL0kCRmpwxcXwj2Vy0gUIlcgknJndTc9o.EqAY2MwUTFFakty8jFLcY8eSo-7N_6Pk5TUHUj10I2Q')
 })
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/public/index.html'))

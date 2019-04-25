@@ -65,27 +65,17 @@ app.use(helmet())
 // Router Setup
 router(app)
 
+// //Static file declaration
+app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
+
 // production mode
 if(process.env.NODE_ENV === 'production') {
-	app.get('/.well-known/acme-challenge/:content', (req, res) => {
-		console.log('arrive ssl')
-		res.send('v6WjfaIvbLhL0kCRmpwxcXwj2Vy0gUIlcgknJndTc9o.EqAY2MwUTFFakty8jFLcY8eSo-7N_6Pk5TUHUj10I2Q')
-	})
-	app.use(express.static(path.join(__dirname, 'client/build')))
+  app.use(express.static(path.join(__dirname, 'client/build')))
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 }
-
 // //build mode
-app.get('/.well-known/acme-challenge/:content', (req, res) => {
-	console.log('arrive ssl out')
-	res.send('v6WjfaIvbLhL0kCRmpwxcXwj2Vy0gUIlcgknJndTc9o.EqAY2MwUTFFakty8jFLcY8eSo-7N_6Pk5TUHUj10I2Q')
-})
-
-// //Static file declaration
-app.use(express.static(path.join(__dirname, 'client/build')))
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/public/index.html'))
 })

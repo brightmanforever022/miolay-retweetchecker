@@ -66,7 +66,7 @@ app.use(helmet())
 router(app)
 
 // //Static file declaration
-app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
+app.use(express.static(__dirname, { dotfiles: 'allow' }))
 
 // production mode
 if(process.env.NODE_ENV === 'production') {

@@ -61,7 +61,7 @@ app.use(bodyParser.json({
 })) // middleware for helping parse incoming HTTP requests
 
 app.use(helmet())
-// app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
+app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
 
 // Router Setup
 router(app)

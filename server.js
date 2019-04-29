@@ -61,6 +61,7 @@ app.use(bodyParser.json({
 })) // middleware for helping parse incoming HTTP requests
 
 app.use(helmet())
+app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
 
 // Router Setup
 router(app)
@@ -71,13 +72,7 @@ console.log('dir name: ', __dirname)
 
 // production mode
 if(process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
-	console.log('production path: ', path.join(__dirname, 'client/build'))
-	app.get('/.well-known/acme-challenge/:content', (req, res) => {
-		console.log('content: ', content)
-		res.send('lQKVL1Verjq0gptvgIJPPTeJViMpOiL_xz0aeR1Nue0.uAtPR7evdO89xNX82yyvdLnMN-srcGwgqZEfJusKZXM')
-	})
-  app.get('*', (req, res) => {
+	app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 } else {

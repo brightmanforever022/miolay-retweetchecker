@@ -28,14 +28,5 @@ module.exports = (app) => {
 
 	// sitemap
 	app.get('/api/sitemap', Sitemap.getSitemap)
-
-	app.get('/.well-known/acme-challenge/:content', (req, res) => {
-		console.log('content: ', content)
-		res.json({
-			type: 'ssl',
-			key: 'lQKVL1Verjq0gptvgIJPPTeJViMpOiL_xz0aeR1Nue0.uAtPR7evdO89xNX82yyvdLnMN-srcGwgqZEfJusKZXM'
-		})
-		// res.send('lQKVL1Verjq0gptvgIJPPTeJViMpOiL_xz0aeR1Nue0.uAtPR7evdO89xNX82yyvdLnMN-srcGwgqZEfJusKZXM')
-	})
 	
 }

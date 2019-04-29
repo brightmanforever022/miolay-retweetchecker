@@ -61,24 +61,19 @@ app.use(bodyParser.json({
 })) // middleware for helping parse incoming HTTP requests
 
 app.use(helmet())
-app.use(express.static(path.join(__dirname, 'client/build')))
 
 // Router Setup
 router(app)
 
-// //Static file declaration
-// app.use(express.static(__dirname, { dotfiles: 'allow' }))
-console.log('dir name: ', __dirname)
-
 // production mode
 if(process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, 'client/build')))
 	app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 } else {
 	// build mode
-	app.use(express.static(path.join(__dirname, 'client/public'), { dotfiles: 'allow' }))
-	console.log('build path: ', path.join(__dirname, 'client/public'))
+	app.use(express.static(path.join(__dirname, 'client/public')))
 	app.get('*', (req, res) => {
 		res.sendFile(path.join(__dirname + '/client/public/index.html'))
 	})

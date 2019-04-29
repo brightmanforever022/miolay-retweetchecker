@@ -66,19 +66,24 @@ app.use(helmet())
 router(app)
 
 // //Static file declaration
-app.use(express.static(__dirname, { dotfiles: 'allow' }))
+// app.use(express.static(__dirname, { dotfiles: 'allow' }))
+console.log('dir name: ', __dirname)
 
 // production mode
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
+	app.use(express.static(path.join(__dirname, 'client/build'), { dotfiles: 'allow' }))
+	console.log('production path: ', path.join(__dirname, 'client/build'))
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
+} else {
+	// build mode
+	app.use(express.static(path.join(__dirname, 'client/public'), { dotfiles: 'allow' }))
+	console.log('build path: ', path.join(__dirname, 'client/public'))
+	app.get('*', (req, res) => {
+		res.sendFile(path.join(__dirname + '/client/public/index.html'))
+	})
 }
-// //build mode
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/public/index.html'))
-})
 
 // Server Setup
 const server = http.createServer(app)

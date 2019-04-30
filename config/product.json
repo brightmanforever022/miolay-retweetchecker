@@ -9,7 +9,7 @@
   },
   "twitter": {
     "oauth1": {
-      "callback": "retweetchecker.com/login/callback",
+      "callback": "http://www.retweetchecker.com/login/callback",
       "consumerKey": "45wUovZfxo71MSIPJGBn7HOlA",
       "consumerSecret": "JyGw917HJvgo3iwFvnMw8KTmkPvZcw5rZuvrXwUBkhrmWuqh6T",
       "accessTokenKey": "1012412990438559745-D0fJYJldYym7vO19zBahzqORJ6lQHn",

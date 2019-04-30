@@ -68,11 +68,11 @@ router(app)
 // app.use(express.static(__dirname))
 // production mode
 if(process.env.NODE_ENV === 'production') {
-	// app.use(express.static(path.join(__dirname, 'client/build')))
-	setup(app, {
-		outputPath: resolve(process.cwd(), 'client/build'),
-		publicPath: '/',
-	});
+	app.use(express.static(path.join(__dirname, 'client/build')))
+	// setup(app, {
+	// 	outputPath: resolve(process.cwd(), 'client/build'),
+	// 	publicPath: '/',
+	// });
 	app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })

@@ -75,6 +75,7 @@ if(process.env.NODE_ENV === 'production') {
 	// build mode
 	app.use(express.static(path.join(__dirname, 'client/public')))
 	app.get('*', (req, res) => {
+		res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url })
 		res.sendFile(path.join(__dirname + '/client/public/index.html'))
 	})
 }

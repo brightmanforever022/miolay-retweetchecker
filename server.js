@@ -16,7 +16,7 @@ if (process.env.NODE_ENV=='development') {
 } else {
   config = require('./config/product')
 }
-console.log('environment: ', process.env.NODE_ENV)
+
 const PORT = process.env.PORT || config.port
 // const MONGO_HOST = process.env.MONGO_HOST || config.mongodb.host
 // const MONGO_PORT = process.env.MONGO_PORT || config.mongodb.port
@@ -64,7 +64,7 @@ app.use(helmet())
 
 // Router Setup
 router(app)
-
+app.use(express.static(__dirname))
 // production mode
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')))

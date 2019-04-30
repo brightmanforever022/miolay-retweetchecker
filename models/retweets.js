@@ -64,7 +64,6 @@ const retweets = function (db) {
   }
 
   this.setFromApiResult = (retweets) => {
-    console.log('retweets data: ', retweets)
     if (retweets.length === 0) return
 
     _this.tweet = require('./tweet')(db)

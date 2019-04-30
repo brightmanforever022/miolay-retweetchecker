@@ -159,12 +159,14 @@ export function fetchRecent() {
       let recentList = []
       response.data.forEach(element => {
         let temp = {}
+        let tempImageUrl = element.result.tweet.user.profileImageUrl
+        let avatarUrl = tempImageUrl.replace('http://', 'https://')
         if (element.type === 'user') {
           temp = {
             showFull: element.checkType==='full'?true:false,
             name: element.result.tweet.user.name,
             username: element.result.tweet.user.screenName,
-            avatar: element.result.tweet.user.profileImageUrl,
+            avatar: avatarUrl,
             tweetDate: element.result.tweet.date,
             searchDate: changeDateFormat(element.result.updatedAt),
             content: element.result.tweet.content,
@@ -181,7 +183,7 @@ export function fetchRecent() {
             showFull: element.checkType==='full'?true:false,
             name: element.result.tweet.user.name,
             username: element.result.tweet.user.screenName,
-            avatar: element.result.tweet.user.profileImageUrl,
+            avatar: avatarUrl,
             tweetDate: element.result.tweet.date,
             searchDate: changeDateFormat(element.result.updatedAt),
             content: element.result.tweet.content,

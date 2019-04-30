@@ -9,7 +9,6 @@ const bodyParser = require('body-parser')
 const pkgjson    = require('./package.json')
 const router     = require('./router')
 const path       = require('path')
-const resolve    = require('path').resolve
 require('dotenv').config()
 var config
 if (process.env.NODE_ENV=='development') {
@@ -69,10 +68,6 @@ router(app)
 // production mode
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')))
-	// setup(app, {
-	// 	outputPath: resolve(process.cwd(), 'client/build'),
-	// 	publicPath: '/',
-	// });
 	app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })

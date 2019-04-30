@@ -9,6 +9,8 @@ const bodyParser = require('body-parser')
 const pkgjson    = require('./package.json')
 const router     = require('./router')
 const path       = require('path')
+const enforce    = require('express-sslify')
+
 require('dotenv').config()
 var config
 if (process.env.NODE_ENV=='development') {
@@ -54,6 +56,8 @@ app.use((req, res, next) => {
 	}
 	next()
 })
+// Redirect to https
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json({

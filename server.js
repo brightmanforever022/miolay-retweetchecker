@@ -4,6 +4,7 @@ const app        = express()
 const cors       = require('cors')
 const helmet     = require('helmet')
 const session    = require('cookie-session')
+const http       = require('http')
 const https      = require('https')
 const fs         = require('fs')
 const bodyParser = require('body-parser')
@@ -12,11 +13,11 @@ const router     = require('./router')
 const path       = require('path')
 const enforce    = require('express-sslify')
 
-const privateKey  = fs.readFileSync('sslcert/private.key', 'utf8');
-const certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+const privateKey  = fs.readFileSync('sslcert/private.key', 'utf8')
+const certificate = fs.readFileSync('sslcert/server.crt', 'utf8')
+const bundle = fs.readFileSync('sslcert/ca_bundle.crt', 'utf8')
 
-var credentials = {key: privateKey, cert: certificate};
-
+const credentials = { key: privateKey, cert: certificate, ca: bundle }
 require('dotenv').config()
 var config
 if (process.env.NODE_ENV=='development') {
@@ -91,7 +92,7 @@ if(process.env.NODE_ENV === 'production') {
 // app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // Server Setup
-const server = https.createServer(credentials, app)
+const server = http.createServer(app)
 server.listen(PORT, () => {
   console.log('TwitterCheck listening on: ', PORT)
 })

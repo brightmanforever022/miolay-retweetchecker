@@ -60,12 +60,14 @@ export function signCallbackHandling(tokens) {
     }})
     .then(result=>{
       const {data} = result
-      localStorage.setItem('user_avatar',data.twitterUser.avatar)
+      let tempAvatar = data.twitterUser.avatar
+      const avatarImageUrl = tempAvatar.replace('http://', 'https://')
+      localStorage.setItem('user_avatar',avatarImageUrl)
       localStorage.setItem('user_name',data.twitterUser.screen_name)
       if (data.twitterUser.screen_name.length > 0) {
         dispatch({
           type: AUTH_USER,
-          payload: {username:data.twitterUser.screen_name, image: data.twitterUser.avatar},
+          payload: {username:data.twitterUser.screen_name, image: avatarImageUrl},
         })
       } else {
         dispatch({

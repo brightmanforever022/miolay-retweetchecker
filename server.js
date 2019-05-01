@@ -56,8 +56,6 @@ app.use((req, res, next) => {
 	}
 	next()
 })
-// Redirect to https
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json({
@@ -73,7 +71,8 @@ router(app)
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')))
 	app.get('*', (req, res) => {
-    res.writeHead(301, { "Location": "https://" + req.headers['host'].replace('www.', '') + req.url })
+		console.log('host: ', req.headers['host'])
+		res.writeHead(301, { "Location": "https://" + req.headers['host'].replace('www.', '') + req.url })
 		res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 } else {
@@ -83,6 +82,8 @@ if(process.env.NODE_ENV === 'production') {
 		res.sendFile(path.join(__dirname + '/client/public/index.html'))
 	})
 }
+// Redirect to https
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // Server Setup
 const server = http.createServer(app)

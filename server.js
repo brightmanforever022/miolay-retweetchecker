@@ -89,7 +89,7 @@ if(process.env.NODE_ENV === 'production') {
 	})
 }
 // Redirect to https
-// app.use(enforce.HTTPS({ trustProtoHeader: true }))
+app.use(redirectHttps())
 
 // Server Setup
 const server = http.createServer(app)
@@ -100,3 +100,26 @@ server.listen(PORT, () => {
 var pingdom = setInterval(function() {
   https.get(config.originURL + '/api/')
 }, 900000)
+
+var redirectHttps = () => {
+	return (req, res, next) => {
+		var isHttps = req.secure
+
+		if(!isHttps) {
+			isHttps = ((req.headers["x-forwarded-proto"] || '').substring(0,5) === 'https')
+		}
+
+		if(isHttps) {
+			next()
+		} else {
+			// Only redirect GET methods
+			if(req.method === "GET" || req.method === 'HEAD') {
+				var host = req.headers.host
+				hostWithoutWww = host.replace('www.', '')
+				res.redirect(301, "https://" + hostWithoutWww + req.originalUrl);
+			} else {
+				res.status(403).send("Please use HTTPS when submitting data to this server.");
+			}
+		}
+	}
+}

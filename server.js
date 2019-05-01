@@ -102,7 +102,7 @@ var pingdom = setInterval(function() {
 }, 900000)
 
 var redirectHttps = () => {
-	return (req, res, next) => {
+	return function(req, res, next) {
 		var isHttps = req.secure
 
 		if(!isHttps) {

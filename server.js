@@ -92,7 +92,7 @@ if(process.env.NODE_ENV === 'production') {
 // app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // Server Setup
-const server = http.createServer(app)
+const server = https.createServer(credentials, app)
 server.listen(PORT, () => {
   console.log('TwitterCheck listening on: ', PORT)
 })

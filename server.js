@@ -72,7 +72,6 @@ if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')))
 	app.get('*', (req, res) => {
 		console.log('host: ', req.headers['host'])
-		res.writeHead(301, { "Location": "https://" + req.headers['host'].replace('www.', '') + req.url })
 		res.sendFile(path.join(__dirname + '/client/build/index.html'))
   })
 } else {
@@ -83,7 +82,7 @@ if(process.env.NODE_ENV === 'production') {
 	})
 }
 // Redirect to https
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+// app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // Server Setup
 const server = http.createServer(app)

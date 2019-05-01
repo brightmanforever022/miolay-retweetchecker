@@ -18,6 +18,30 @@ const certificate = fs.readFileSync('sslcert/server.crt', 'utf8')
 const bundle = fs.readFileSync('sslcert/ca_bundle.crt', 'utf8')
 
 const credentials = { key: privateKey, cert: certificate, ca: bundle }
+
+var redirectHttps = function() {
+	return function(req, res, next) {
+		var isHttps = req.secure
+
+		if(!isHttps) {
+			isHttps = ((req.headers["x-forwarded-proto"] || '').substring(0,5) === 'https')
+		}
+
+		if(isHttps) {
+			next()
+		} else {
+			// Only redirect GET methods
+			if(req.method === "GET" || req.method === 'HEAD') {
+				var host = req.headers.host
+				hostWithoutWww = host.replace('www.', '')
+				res.redirect(301, "https://" + hostWithoutWww + req.originalUrl);
+			} else {
+				res.status(403).send("Please use HTTPS when submitting data to this server.");
+			}
+		}
+	}
+}
+
 require('dotenv').config()
 var config
 if (process.env.NODE_ENV=='development') {
@@ -100,26 +124,3 @@ server.listen(PORT, () => {
 var pingdom = setInterval(function() {
   https.get(config.originURL + '/api/')
 }, 900000)
-
-var redirectHttps = () => {
-	return function(req, res, next) {
-		var isHttps = req.secure
-
-		if(!isHttps) {
-			isHttps = ((req.headers["x-forwarded-proto"] || '').substring(0,5) === 'https')
-		}
-
-		if(isHttps) {
-			next()
-		} else {
-			// Only redirect GET methods
-			if(req.method === "GET" || req.method === 'HEAD') {
-				var host = req.headers.host
-				hostWithoutWww = host.replace('www.', '')
-				res.redirect(301, "https://" + hostWithoutWww + req.originalUrl);
-			} else {
-				res.status(403).send("Please use HTTPS when submitting data to this server.");
-			}
-		}
-	}
-}

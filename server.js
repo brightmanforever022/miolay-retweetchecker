@@ -101,6 +101,7 @@ router(app)
 // production mode
 if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')))
+	app.use(redirectHttps())
 	app.get('*', (req, res) => {
 		console.log('host: ', req.headers['host'])
 		res.sendFile(path.join(__dirname + '/client/build/index.html'))
@@ -113,7 +114,7 @@ if(process.env.NODE_ENV === 'production') {
 	})
 }
 // Redirect to https
-app.use(redirectHttps())
+// app.use(redirectHttps())
 
 // Server Setup
 const server = http.createServer(app)

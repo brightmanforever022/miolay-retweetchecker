@@ -302,7 +302,6 @@ exports.fullChecker = (req, res) => {
             })
           })
           //   })
-            
           // }).catch(updateError => {
           //   console.log('error in updating retweets: ', updateError)
           // })

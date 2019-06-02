@@ -22,7 +22,16 @@ class DoughnutChart extends Component {
         }]
       },
       options: {
-        legend: {display: false},
+        legend: { display: false },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+                  var label = data.labels[tooltipItem.datasetIndex]
+                  label += ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%'
+                  return label
+            }
+          }
+        }
       }
     })
   }

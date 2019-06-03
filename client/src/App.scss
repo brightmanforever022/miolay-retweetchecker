@@ -511,6 +511,8 @@
   .analysis-box {
     margin-top: 0;
     margin-bottom: 0;
+    width: 33.3%;
+    margin-left: .5%;
 
     .anal-inner {
       padding-right: 4%;
@@ -698,6 +700,9 @@
     }
     a.analysis-link.disabled {
       cursor: not-allowed;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
     }
   }
 

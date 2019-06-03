@@ -65,7 +65,7 @@ class Report extends Component {
       _bots_account: 0,
       _bots_account_and_activity: 0,
     }
-
+    
     if (tweetData && typeof tweetData.counts !== 'undefined') {
       analysis.counts = {
         retweets: this.lengthenIntFromAbbrString(tweetData.counts.retweets),
@@ -151,6 +151,19 @@ class Report extends Component {
     return analysis.estimates
   }
 
+  getOrderTail = function(num) {
+    let lastNumber = num - Math.floor(num / 10) * 10
+    if(lastNumber === 1) {
+      return num + 'st'
+    } else if(lastNumber === 2) {
+      return num + 'nd'
+    } else if(lastNumber === 3) {
+      return num + 'rd'
+    } else {
+      return num + 'th'
+    }
+  }
+
   render() {
 
     const { recent } = this.props
@@ -160,13 +173,17 @@ class Report extends Component {
     let totalLength = recent.retweeters.length
     let realCount = 0, realRegularCount = 0, realInfluencerCount = 0, suspicious = 0, highRetweetRatio = 0, highFollowerRatio = 0, highThreatLevel = 0
     let bots = 0, botsAccount = 0, botsActivity = 0, accountAndActivity = 0
+    let twitterHandle = recent.searchResult.tweet.user.screenName
+    let imageOrder = 0
     for ( let i in recent.retweeters ) {
       let linkClasses = ['avatar']
+      imageOrder = parseInt(i) + 1
+      let imageAlt = 'Is ' + twitterHandle + '\'s ' + this.getOrderTail(imageOrder) + ' tweet checked Retweets real?'
       linkClasses.push(recent.retweeters[i].analysis.classification)
       linkClasses.push(recent.retweeters[i].analysis.justification.slug)
       retweetersJSX.push(
         <a key={i} className="retweeter-link" href={"https://twitter.com/" + recent.retweeters[i].screenName} target="_blank" rel="noopener noreferrer">
-          <img src={recent.retweeters[i].profileImageUrl} title="" className={linkClasses.join(' ')} alt="" />
+          <img src={recent.retweeters[i].profileImageUrl} title={ imageAlt } className={linkClasses.join(' ')} alt={ imageAlt } />
         </a>
       )
       // Calculate percents of each category

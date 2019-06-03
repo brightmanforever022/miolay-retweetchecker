@@ -34,7 +34,8 @@ class Tweet extends Component {
 
   componentWillReceiveProps (nextProps) {
     this.setState({isSearching: false})
-    console.log('nextprops: ', nextProps.recent.searchResult.tweet)
+    // console.log('nextprops: ', nextProps.recent.searchResult.tweet)
+    console.log('nextprops: ', nextProps)
     let tweetContent = nextProps.recent.searchResult.tweet.content
     document.title = '"' + tweetContent.substring(0, 18) + '" | Retweet Checker'
     document.getElementsByTagName("meta")[2].content = nextProps.recent.searchResult.tweet.user.name + ' - ' + tweetContent.substring(0, 38) + ' | Are These Retweets Real?'

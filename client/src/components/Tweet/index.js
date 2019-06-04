@@ -17,6 +17,7 @@ class Tweet extends Component {
     this.handleRefresh = this.handleRefresh.bind(this)
   }
   handleRefresh () {
+    console.log('retweet Id: ', this.props.retweetId)
     this.props.refreshTwitter('/status/' + this.props.retweetId)
     this.setState({isSearching: true})
   };
@@ -34,11 +35,11 @@ class Tweet extends Component {
 
   componentWillReceiveProps (nextProps) {
     this.setState({isSearching: false})
-    // console.log('nextprops: ', nextProps.recent.searchResult.tweet)
     console.log('nextprops: ', nextProps)
-    let tweetContent = nextProps.recent.searchResult.tweet.content
-    document.title = '"' + tweetContent.substring(0, 18) + '" | Retweet Checker'
-    document.getElementsByTagName("meta")[2].content = nextProps.recent.searchResult.tweet.user.name + ' - ' + tweetContent.substring(0, 38) + ' | Are These Retweets Real?'
+    // console.log('nextprops: ', nextProps.recent.searchResult.tweet)
+    // let tweetContent = nextProps.recent.searchResult.tweet.content
+    // document.title = '"' + tweetContent.substring(0, 18) + '" | Retweet Checker'
+    // document.getElementsByTagName("meta")[2].content = nextProps.recent.searchResult.tweet.user.name + ' - ' + tweetContent.substring(0, 38) + ' | Are These Retweets Real?'
   }
 
   render () {

@@ -235,11 +235,13 @@ export function refreshTwitter(value) {
     axios.post(`${ROOT_URL}/fullChecker${tokens}`,
       { check: value, user_name: user_name, refresh: 1 }
     ).then(response => {
+      console.log('res: ', response)
       dispatch({
         type: REFRESH_TWEET,
         payload: response.data,
       })
     }).catch(error => {
+      console.log('error: ', error)
       dispatch({
         type: REFRESH_TWEET,
         payload: {error: error},

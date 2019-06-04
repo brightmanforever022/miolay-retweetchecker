@@ -165,7 +165,8 @@ exports.fullChecker = (req, res) => {
     })
   } else if (checker.indexOf('status/') >= 0) {
     let retweetsModel = require('../models/retweets')(reqDB)
-    let searchTerm = checker.split('/').pop()
+    let searchTerm = checker.split('status/').pop().replace(/[^0-9]/g, '')
+    console.log('search term: ', searchTerm)
     const isRefresh = req.body.refresh
     return retweetsModel.find(searchTerm).then(retweetsResult => {
       if (!retweetsResult || retweetsResult.length === 0 || isRefresh) {

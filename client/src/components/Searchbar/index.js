@@ -50,7 +50,13 @@ class Searchbar extends Component {
     if (recent.error) {
       this.setState({ isSearching: false, errorMessage: 'Sorry, looks like that tweet doesn\'t exist' })
     } else {
+      console.log('search recent: ', recent)
       this.setState({ isSearching: false })
+      if (recent.searchResult) {
+        let tweetContent = recent.searchResult.tweet.content
+        document.title = '"' + tweetContent.substring(0, 18) + '" | Retweet Checker'
+        document.getElementsByTagName("meta")[2].content = nextProps.recent.searchResult.tweet.user.name + ' - ' + tweetContent.substring(0, 38) + ' | Are These Retweets Real?'
+      }
     }
   }
 

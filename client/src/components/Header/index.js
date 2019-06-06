@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import logo from '../../logo.svg'
+import logo from '../../main-logo.svg'
 
 class Header extends Component {
 

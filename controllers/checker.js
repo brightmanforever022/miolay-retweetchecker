@@ -184,6 +184,7 @@ exports.fullChecker = (req, res) => {
           if (authorizedUser) {
             checkType = 'full'
           }
+          // console.log('tweetResult: ', tweetResult)
           recent.id = uuid4()
           recent.type = 'tweet'
           recent.checkType = checkType

@@ -188,8 +188,7 @@ exports.fullChecker = (req, res) => {
           recent.type = 'tweet'
           recent.checkType = checkType
           recent.search = searchTerm
-          recent.result = tweetResult
-          recent.result.retweetId = searchTerm
+          recent.result = Object.assign(tweetResult, { retweetId: searchTerm})
           return getOne(
             'user',
             require('../models/user')(reqDB),
